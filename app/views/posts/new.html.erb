@@ -1,2 +1,34 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>New Post</h1>
+
+<div class="row">
+  <div class="span-6">
+    <p>Guidelines for new posts:</p>
+    <ul>
+      <li>Make sure content is appropriate.</li>
+      <li>Blah blah blah</li>
+      <li>Blah blah blah</li>
+      <li>Blah blah blah</li>
+    </ul>
+  </div>
+  <div class="span-6">
+    <%= form_for @post, html: { class: 'form-horizontal' } do |f| %>
+      <div class="control-group">
+        <%= f.label :title, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :title %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :body, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :body, rows: 8 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Save", class: 'btn' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
