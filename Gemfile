@@ -27,11 +27,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'newrelic_rpm'
+
 gem 'jquery-rails'
 
 # generate development data automatically
 gem 'faker'
 
+# Devise User Authentication System
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,5 +1,7 @@
 Bloccit::Application.routes.draw do
 
+  devise_for :users
+
   # call the resources method, and pass it the :posts symbol
   # this instructs Rails to create routes for every CRUD action
   resources :posts
