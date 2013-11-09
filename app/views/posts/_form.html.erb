@@ -1,0 +1,29 @@
+<%= form_for [topic, post], html: { class: 'form-horizontal' } do |f| %>
+  <% if post.errors.any? %>
+    <div class="alert alert-block">
+      <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
+      <ul>
+        <% post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= control_group_tag(post.errors[:title]) do %>
+    <%= f.label :title, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
+  <% end %>
+  <%= control_group_tag(post.errors[:body]) do %>
+    <%= f.label :body, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :body, rows: 8 %>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Save", class: 'btn' %>
+    </div>
+  </div>
+<% end %>

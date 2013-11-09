@@ -1,9 +1,5 @@
 class Post < ActiveRecord::Base
 
-  #attr_accessible tells the model what attributes should be available
-  #to the user
-  attr_accessible :body, :title, :topic
-
   #The has_many method tells Rails that a post object can have many 
   #comments related to it, and also provides methods that enable you 
   #to retrieve comments that belong to a post.
@@ -11,5 +7,14 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
 
+  #attr_accessible tells the model what attributes should be available
+  #to the user
+  attr_accessible :body, :title, :topic
+
   default_scope order('created_at DESC')
+
+  validates :title, length: { minimum: 5 }, presence: true
+  validates :body, length: { minimum: 20 }, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true    
 end
