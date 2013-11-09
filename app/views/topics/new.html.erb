@@ -1,7 +1,8 @@
-<h1>Edit Post</h1>
+<h1>New Topic</h1>
+
 <div class="row">
   <div class="span-6">
-    <p>Guidelines for new posts:</p>
+    <p>Guidelines for new topics:</p>
     <ul>
       <li>Make sure content is appropriate.</li>
       <li>Blah blah blah</li>
@@ -10,17 +11,24 @@
     </ul>
   </div>
   <div class="span-6">
-    <%= form_for [@topic, @post], html: { class: 'form-horizontal' } do |f| %>
+    <%= form_for @topic, html: { class: 'form-horizontal' } do |f| %>
       <div class="control-group">
-        <%= f.label :title, class: 'control-label' %>
+        <%= f.label :name, class: 'control-label' %>
         <div class="controls">
-          <%= f.text_field :title %>
+          <%= f.text_field :name %>
         </div>
       </div>
       <div class="control-group">
-        <%= f.label :body, class: 'control-label' %>
+        <%= f.label :description, class: 'control-label' %>
         <div class="controls">
-          <%= f.text_area :body, rows: 8 %>
+          <%= f.text_area :description, rows: 8 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.label :public, class: 'checkbox' do %>
+            <%= f.check_box :public %> Public topic
+          <% end %>
         </div>
       </div>
       <div class="control-group">
