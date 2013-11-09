@@ -40,6 +40,9 @@ gem 'devise'
 #Cancan user authorization
 gem 'cancan'
 
+#Redcarpet Markdown library
+gem 'redcarpet'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
