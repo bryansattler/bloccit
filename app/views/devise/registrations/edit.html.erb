@@ -44,6 +44,13 @@
       <%= f.password_field :current_password %>
       <i>(we need your current password to confirm your changes)</i>
     </div>
+  </div>
+  <div class="control-group">
+    <%= image_tag(current_user.avatar.small.url) if current_user.avatar? %>
+    <%= f.label :avatar, class: 'control-label' %>
+    <div class="controls"> 
+      <%= f.file_field :avatar %>
+    </div>
   </div>      
   <div class="control-group">
     <div class="controls">
