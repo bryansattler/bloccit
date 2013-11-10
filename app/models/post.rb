@@ -9,7 +9,9 @@ class Post < ActiveRecord::Base
 
   #attr_accessible tells the model what attributes should be available
   #to the user
-  attr_accessible :body, :title, :topic
+  attr_accessible :body, :title, :topic, :image
+
+  mount_uploader :image, ImageUploader  
 
   default_scope order('created_at DESC')
 

@@ -1,3 +1,4 @@
+<%= image_tag(@post.image.thumb.url) if @post.image? %>
 <h1><%= markdown @post.title %></h1>
 
 <div class="row">
