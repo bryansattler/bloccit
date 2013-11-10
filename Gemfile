@@ -44,9 +44,10 @@ gem 'cancan'
 gem 'redcarpet'
 
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'mini_magick', '3.6.0'
 gem 'fog'
 gem 'figaro'
+gem 'unf'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
