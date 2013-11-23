@@ -8,7 +8,9 @@ Bloccit::Application.routes.draw do
     # Give Posts a nested route within topics
     # Posts has a URL scoped to topic to follow RESTful conventions
     # i.e. /topics/1/posts/3
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create]
+    end
   end 
 
   match "about" => 'welcome#about', via: :get

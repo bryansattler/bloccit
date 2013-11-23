@@ -34,12 +34,19 @@ rand(4..10).times do
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
 
     topics.rotate! # add this line to move the first topic to the last, so that posts get assigned to different topics.
-
-    rand(3..7).times do
-      p.comments.create(
-        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
-    end
   end
+end
+
+# Create comments with seed for each user
+post_count = Post.count
+User.all.each do |user|
+    rand(30..50).times do
+      p = Post.find(rand(1..post_count))
+      c = user.comments.create(
+        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"),
+        post: p)
+      c.update_attribute(:created_at, Time.now - rand(600..31536000))
+    end
 end
 
 u = User.new(
