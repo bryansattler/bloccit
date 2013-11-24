@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   #The has_many method tells Rails that a post object can have many 
   #comments related to it, and also provides methods that enable you 
   #to retrieve comments that belong to a post.
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :user
   belongs_to :topic
 

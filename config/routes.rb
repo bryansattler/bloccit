@@ -9,7 +9,7 @@ Bloccit::Application.routes.draw do
     # Posts has a URL scoped to topic to follow RESTful conventions
     # i.e. /topics/1/posts/3
     resources :posts, except: [:index] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
     end
   end 
 
