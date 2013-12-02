@@ -9,6 +9,7 @@
     <p class="lead"><%= markdown @topic.description %></p>
     <% @posts.each do |post| %>
       <div class="media">
+        <%= render partial: 'votes/voter', locals: { topic: @topic, post: post } %>
         <div class="media-body">
           <%= image_tag(post.image.thumb.url) if post.image? %>
           <h4 class="media-heading">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131202201103) do
+ActiveRecord::Schema.define(:version => 20131202222145) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131202201103) do
     t.integer  "user_id"
     t.integer  "topic_id"
     t.string   "image"
+    t.float    "rank"
   end
 
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
@@ -71,5 +72,16 @@ ActiveRecord::Schema.define(:version => 20131202201103) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "value"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["post_id"], :name => "index_votes_on_post_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end

@@ -1,0 +1,7 @@
+<% if can? :create, Vote %>
+<div class="vote-arrows pull-left">
+  <div><%= link_to " ", topic_post_up_vote_path(topic, post), class: 'icon-chevron-up' %></div>
+  <div><strong><%= post.points %></strong></div>
+  <div><%= link_to " ", topic_post_down_vote_path(topic, post), class: 'icon-chevron-down' %></div>
+</div>
+<% end %>
