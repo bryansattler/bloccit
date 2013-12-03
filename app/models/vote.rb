@@ -13,4 +13,12 @@ class Vote < ActiveRecord::Base
     self.post.update_rank
   end
 
+  def up_vote?
+    value == 1
+  end
+
+  def down_vote?
+    value == -1
+  end
+
 end
