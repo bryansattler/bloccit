@@ -2,6 +2,8 @@ Bloccit::Application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
+  resources :users, only: [:show] # create a route for users#show
+  
   # call the resources method, and pass it the :topics & :posts symbols
   # this instructs Rails to create routes for every CRUD action
   resources :topics do

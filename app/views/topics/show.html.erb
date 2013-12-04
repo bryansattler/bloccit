@@ -7,23 +7,7 @@
 <div class="row">
   <div class="span8">
     <p class="lead"><%= markdown @topic.description %></p>
-    <% @posts.each do |post| %>
-      <div class="media">
-        <%= render partial: 'votes/voter', locals: { topic: @topic, post: post } %>
-        <div class="media-body">
-          <%= image_tag(post.image.thumb.url) if post.image? %>
-          <h4 class="media-heading">
-          <%= link_to (markdown post.title), [@topic, post] %>
-          </h4>
-          <small>
-            <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
-            submitted <%= time_ago_in_words(post.created_at) %> ago by 
-            <%= post.user.name %><br/>
-            <%= post.comments.count %> Comments
-          </small>          
-        </div>
-      </div>
-    <% end %>
+    <%= render @posts %>
     <%= will_paginate @posts %>
   </div>
   <div class="span4">
