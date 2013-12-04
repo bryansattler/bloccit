@@ -15,15 +15,29 @@
 //= require bootstrap
 //= require_tree .
 
+// CHECKPOINT CODE
+// $(document).ready(function() {
+//   $(".js-show-hide").click(function() {
+//     var selector = "." + $(this).attr('data-selector');
+//     if ($(selector).is(":visible")) {
+//       $(selector).slideUp();
+//     }
+//     else {
+//       $(selector).slideDown();
+//     }
+//     return false;
+//   });
+// });
+
 $(document).ready(function() {
-  $(".js-show-hide").click(function() {
-    var selector = "." + $(this).attr('data-selector');
-    if ($(selector).is(":visible")) {
-      $(selector).slideUp();
-    }
-    else {
-      $(selector).slideDown();
-    }
+  $(".js-add-comment").click(function() {
+    $(".js-new-comment").slideDown();
+    $(this).hide();
     return false;
   });
+  $(".js-hide").click(function() {
+    $(".js-new-comment").slideUp();
+    $(".js-add-comment").show();
+    return false;
+  });  
 });
