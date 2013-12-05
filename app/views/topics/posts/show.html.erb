@@ -13,7 +13,7 @@
     <p><%= image_tag(@post.image_url) if @post.image? %></p>
     <hr/>
 
-    <h2><%= @comments.count %> Comments</h2>
+    <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
 
     <%= render partial: 'comments/comment', collection: @comments %>
 
