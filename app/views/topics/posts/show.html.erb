@@ -14,9 +14,10 @@
     <hr/>
 
     <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
-
-    <%= render partial: 'comments/comment', collection: @comments %>
-
+    <div class="js-comments">
+      <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
+      
     <% if can? :create, Comment %>
       <hr/>
       <a href="#" class="js-add-comment">Add Comment</a>
